@@ -1,7 +1,13 @@
-from homepage import task_list
+# from homepage import task_list
+
+def get_task_list():
+    from homepage import task_list  # Import only when needed
+    return task_list
 
 # Runs through chores list and asks whether or not the chore is done
 def complete_selected():
+    task_list = get_task_list()
+
     print("Uncompleted Tasks:")
 
     for i in range(len(task_list)):

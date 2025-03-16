@@ -52,7 +52,7 @@ def main():
 
         option = str(input('Input: '))
 
-        try:
+        if option in ["C", "DA", "DCA", "DCO", "S"]:
             option_choice(option)
-        except ValueError:
-            print("Please Enter Valid Number")
+        else:
+            print("Please Enter Valid Option")

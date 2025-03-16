@@ -2,9 +2,9 @@ import sign_in_create_account, homepage
 
 def directory(option):
     match option:
-        case '1':
+        case 'H':
             homepage.main()
-        case '2':
+        case 'S':
             print("Successfully signed out.")
             print('')
             sign_in_create_account.sign_in = False
@@ -22,10 +22,10 @@ def main():
 
         option = str(input('Input: '))
 
-        try:
+        if option in ['H', 'S']:
             directory(option)
-        except ValueError:
-            print("Please Enter Valid Number")
+        else:
+            print("Please Enter Valid Option")
 
 if __name__ == "__main__":
     main()

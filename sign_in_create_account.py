@@ -12,12 +12,14 @@ signed_in = False
 def create_account():
     global username, password, password_check, account_passwords, account_names
 
+    print("You are on account creation menu")
+
     while True:
 
         username = str(input("Please input a username: "))
 
-        if username:
-            print('Please pick a different name')
+        if not username:
+            print('Please enter an actual username')
 
         elif username in account_names:
             print('That username is taken, please pick another one')
@@ -49,6 +51,8 @@ def sign_into_account():
     global username, password, password_check, account_passwords, account_names, signed_in
 
     while not signed_in:
+
+        print("You are on Sign In menu")
 
         username = str(input("Please input a username: "))
 

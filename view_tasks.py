@@ -1,6 +1,12 @@
-from homepage import task_list
+# from homepage import task_list
+
+def get_task_list():
+    from homepage import task_list  # Import only when needed
+    return task_list
 
 def display_all_tasks():
+    task_list = get_task_list()
+
     if not task_list:
         print("No tasks available")
         return
@@ -15,7 +21,11 @@ def display_all_tasks():
         print(f" Category: {task_list[i][3]}\n")
 
 def display_tasks_by_category(category):
-    if category not in task_list:
+    task_list = get_task_list()
+
+    flat_list = [task_detail for task in task_list for task_detail in task]
+
+    if category not in flat_list:
         print(f"No tasks with {category} available")
         return
 
@@ -28,8 +38,10 @@ def display_tasks_by_category(category):
             print(f" Due: {task_list[i][2]}")
 
 def display_completed_tasks():
+    task_list = get_task_list()
+
     if not task_list:
-        print("No tasks available")
+        print("No completed tasks available")
         return
 
     print("Completed Tasks:")
